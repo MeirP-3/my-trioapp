@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Homepage from '@/components/Homepage'
 import EmailApp from '@/components/email/EmailApp'
+import EmailCompose from '@/components/email/EmailCompose'
 import MapApp from '@/components/map/MapApp'
 import BooksApp from '@/components/book/BookApp'
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/email',
       name: 'email',
       component: EmailApp
+    },
+    {
+      path: '/email/compose',
+      name: 'email-compose',
+      component: EmailCompose
     },
     {
       path: '/map',
