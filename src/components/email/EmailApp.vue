@@ -1,47 +1,51 @@
 <template>
     <div class="email-window">
-        <div class="mail-list">
+        <div class="email-list">
             <div class="progress-bar">
                 I am progress bar!
             </div>
-            <h1>I am mail list!</h1>
+            <h1>I am email list!</h1>
         </div>
-        <div class="current-mail">
-            <div class="mail-header">
-                <h1>I am mail header!</h1>
-            </div>
-            <div class="mail-body">
-                <h1>I am mail body!</h1>
-            </div>
-        </div>
+        <email-details>
+        </email-details>
     </div>
 </template>
 
+<<script>
+import EmailDetails from './EmailDetails'
+export default {
+  components: {
+      
+  }
+}
+</script>
+
+
 <style lang="scss" scoped>
-$mail-list-width: 33%;
-$current-mail-width: 66%;
-$mail-header-height: 30%;
-$mail-body-height: 70%;
-$mail-current-mail-list-height: 95vh;
+$email-list-width: 33%;
+$email-details-width: 66%;
+$email-header-height: 30%;
+$email-body-height: 70%;
+$email-email-details-list-height: 95vh;
 $progress-bar-height: 2vh;
 
 .email-window {
     min-width: 96vw;
     min-height: 96vh;
     border: 1px dashed blue;
-    .mail-header {
-        // height: $mail-header-height;
+    .email-header {
+        // height: $email-header-height;
         border: 1px dashed green;
     }
-    .mail-body {
-        // height: $mail-body-height;
+    .email-body {
+        // height: $email-body-height;
         border: 1px dashed green;
     }
-    .mail-list,
-    .current-mail {
+    .email-list,
+    .email-details {
         border: 1px dashed green;
     }
-    .current-mail {
+    .email-details {
         display: flex;
         flex-flow: column nowrap;
     }
@@ -56,11 +60,11 @@ $progress-bar-height: 2vh;
         display: flex;
         flex-flow: row nowrap;
     }
-    .mail-list {
-        width: $mail-list-width;
+    .email-list {
+        width: $email-list-width;
     }
-    .current-mail {
-        width: $current-mail-width;
+    .email-details {
+        width: $email-details-width;
     }
 }
 </style>
