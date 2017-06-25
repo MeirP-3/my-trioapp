@@ -71,13 +71,13 @@ $email-details-width: 56.5%;
     justify-content: space-between;
 }
 
-body {
-    color: #444;
-}
-
 .email-window {
     min-width: 96vw;
     min-height: 96vh;
+}
+
+li {
+    display: block;
 }
 
 @media all and (min-width: 600px) {
