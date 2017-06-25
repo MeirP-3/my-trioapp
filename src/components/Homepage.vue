@@ -29,7 +29,6 @@ export default {
   color: #666;
   margin-bottom: 2em;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -39,7 +38,6 @@ ul {
   align-items: center;
   align-content: center;
 }
-
 li {
   list-style: none;
   display: inline-block;
@@ -49,7 +47,6 @@ li {
   min-height: 50px;
   min-width: 50px;
 }
-
 li > a {
   margin: 0;
   padding: 1em;

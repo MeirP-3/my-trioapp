@@ -73,6 +73,7 @@ export default {
 }
 
 .delete-email>span {
+    color: #f00;
     transition: all 0.5s;
 }
 
