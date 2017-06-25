@@ -25,7 +25,6 @@ function getEmailById(emailId) {
 }
 
 function deleteEmail(email) {
-  console.log('Deleting the email', email)
   var idx = emails.indexOf(email)
   emails.splice(idx, 1);
 }
@@ -53,13 +52,16 @@ function generateEmails() {
 }
 
 function generateEmail(id) {
+  let d = new Date();
+  let time = d.getDate() + '/' + d.getMonth() + '  ' + d.getHours() + ':' +
+  d.getMinutes() + ':' + d.getSeconds() ;
   return {
     id,
     from: 'jon duo',
     to: 'foo bar',
-    time: Date.now(),
-    subject: `subject of the mail`,
-    body: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, praesentium, nobis repellat perspiciatis quidem ex voluptatem eaque magni hic. Reprehenderit architecto, inventore dolore dicta. Possimus praesentium est quaerat ducimus nam.`,
+    time: time,
+    subject: `subject of mail ${id}`,
+    body: `${id} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, praesentium, nobis repellat perspiciatis quidem ex voluptatem eaque magni hic. Reprehenderit architecto, inventore dolore dicta. Possimus praesentium est quaerat ducimus nam.`,
     isRead: false
   }
 }

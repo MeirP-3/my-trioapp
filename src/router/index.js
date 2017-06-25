@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import Element from 'element-ui'
+// import 'element-ui/lib/theme-default/index.css'
 import Homepage from '@/components/Homepage'
 import EmailApp from '@/components/email/EmailApp'
 import EmailCompose from '@/components/email/EmailCompose'
@@ -22,9 +24,10 @@ export default new Router({
     },
     {
       path: '/email/compose',
-      name: 'email-compose',
+      name: 'compose',
       component: EmailCompose
     },
+
     {
       path: '/map',
       name: 'map',
