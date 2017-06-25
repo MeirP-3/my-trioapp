@@ -10,8 +10,8 @@
                 <span>&times;</span>
             </div>
         </div>
-        <div>
-            <span :class="[{'read': email.isRead}, 'body']">{{email.body}}</span>
+        <div class="body">
+            <p :class="{read: email.isRead}">{{email.body}}</p>
         </div>
     </li>
 </template>
@@ -55,6 +55,9 @@ export default {
 .body {
     font-size: 0.8em;
     font-weight: 300;
+    text-align: start;
+    padding: 0;
+    margin: 0;
 }
 
 .delete-email {

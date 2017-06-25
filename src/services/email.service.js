@@ -30,19 +30,30 @@ function deleteEmail(email) {
 }
 
 function getNext(email) {
-    // select next in a cyclic way
-    var idx = emails.indexOf(email);
-    return (idx < emails.length-1)?  
-          emails[idx+1] : emails[0];
+  // select next in a cyclic way
+  var idx = emails.indexOf(email);
+  return (idx < emails.length - 1) ?
+    emails[idx + 1] : emails[0];
+}
+
+function createId() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const id = emails.length;
+      resolve(id);
+    }, 0);
+  });
 }
 
 function sendEmail(email) {
-  var idx = emails.findIndex(currEmail => currEmail.id === email.id)
-  if (idx > -1) {
-    emails.splice(idx, 1, email);
-  } else {
-    emails.push(email);
-  }
+  let d = new Date()
+  let sec = '' + d.getSeconds()
+  sec = (sec.length === 1) ? '0' + sec : sec
+  email.date = d
+  email.time = d.getDate() + '/' + d.getMonth() + '  ' + d.getHours() + ':' +
+    d.getMinutes() + ':' + sec
+  email.isRead = false
+  emails.push(email);
 }
 
 // Used to create local data with no AJAX
@@ -53,12 +64,15 @@ function generateEmails() {
 
 function generateEmail(id) {
   let d = new Date();
+  let sec = '' + d.getSeconds();
+  sec = (sec.length === 1) ? '0' + sec : sec;
   let time = d.getDate() + '/' + d.getMonth() + '  ' + d.getHours() + ':' +
-  d.getMinutes() + ':' + d.getSeconds() ;
+    d.getMinutes() + ':' + sec;
   return {
     id,
     from: 'jon duo',
     to: 'foo bar',
+    date: d,
     time: time,
     subject: `subject of mail ${id}`,
     body: `${id} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, praesentium, nobis repellat perspiciatis quidem ex voluptatem eaque magni hic. Reprehenderit architecto, inventore dolore dicta. Possimus praesentium est quaerat ducimus nam.`,
@@ -70,6 +84,7 @@ export default {
   getEmails,
   deleteEmail,
   getNext,
+  createId,
   sendEmail
 }
 // function getProductsFromGenericAPI() {
